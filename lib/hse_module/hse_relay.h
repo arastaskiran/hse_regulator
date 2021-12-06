@@ -8,39 +8,43 @@ public:
      *
      * @param io Digital IO Number
      * @param blink Has blink feature (default false)
+     * @param mode Output mode (default true) true=normal false=inverted
      */
-    static void setNormalStateOutput(int io, bool blink = false);
+    static void setNormalStateOutput(int io, bool blink = false, bool mode = false);
 
     /**
      * @brief Set the Warning State Output object
      *
      * @param io Digital IO Number
      * @param blink Has blink feature (default false)
+     * @param mode Output mode (default true) true=normal false=inverted
      */
-    static void setWarningStateOutput(int io, bool blink = false);
+    static void setWarningStateOutput(int io, bool blink = false, bool mode = false);
 
     /**
      * @brief Set the Danger State Output object
      *
      * @param io Digital IO Number
      * @param blink Has blink feature (default false)
+     * @param mode Output mode (default true) true=normal false=inverted
      */
-    static void setDangerStateOutput(int io, bool blink = false);
+    static void setDangerStateOutput(int io, bool blink = false, bool mode = false);
 
     /**
      * @brief Set the Buzzer Output object
      *
      * @param io Digital IO Number
      * @param blink Has blink feature (default false)
+     * @param mode Output mode (default true) true=normal false=inverted
      */
-    static void setBuzzerOutput(int io, bool blink = false);
+    static void setBuzzerOutput(int io, bool blink = false, bool mode = false);
 
     /**
      * @brief Set the Toggle Duration object
      *
      * @param duration millisecond (default 500ms)
      */
-    static void setToggleDuration(int duration = 500);
+    static void setToggleDuration(int duration = 500, bool async=false);
 
     static bool isNormalStateChanged();
     static bool isWarningStateChanged();
@@ -53,10 +57,10 @@ public:
     static bool getBuzzerState();
     static bool getToggleVal();
 
-
 private:
     static unsigned long _last_change;
     static unsigned int _tooge_duration;
+    static unsigned int _tooge_async_duration;
     static bool _toggle_val;
 
     static int _normal_state_out_pin;
@@ -68,6 +72,12 @@ private:
     static bool _is_warning_state_changed;
     static bool _is_danger_state_changed;
     static bool _is_buzzer_state_changed;
+
+    static bool _normal_state_out_mode;
+    static bool _warning_state_out_mode;
+    static bool _danger_state_out_mode;
+    static bool _buzzer_out_mode;
+    static bool _is_toggle_async;
 
     /**
      * @brief Current Normal State Output Value
@@ -101,17 +111,18 @@ private:
      * @param value Final value
      * @param blink Blink prop
      */
-    static bool _isBlink(bool value, bool blink);
+    static bool _isBlink(bool value, bool blink, bool mode);
 
     static void _resetLastChange();
     static void _setToggleValue(bool value);
+    static unsigned int _getCurrentToggleDuration();
 
 protected:
     static bool normal_state_blink;
     static bool warning_state_blink;
     static bool danger_state_blink;
     static bool buzzer_blink;
-    
+
     static void resetEvents();
     static void normalRelay(bool value);
     static void warningRelay(bool value);

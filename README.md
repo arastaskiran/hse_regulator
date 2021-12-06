@@ -144,11 +144,11 @@ int main (void)
     * void setCraneDangerInput(int io, int mode)
     * void setCraneWarningInput(int io, int mode)
     * void setSenWarningInput(int io, int mode)
-    * void setBuzzerOutput(int io, bool blink)
-    * void setDangerStateOutput(int io, bool blink)
-    * void setNormalStateOutput(int io, bool blink)
-    * void setWarningStateOutput(int io, bool blink)
-    * void setToggleDuration(int duration)
+    * void setBuzzerOutput(int io, bool blink, bool mode)
+    * void setDangerStateOutput(int io, bool blink, bool mode)
+    * void setNormalStateOutput(int io, bool blink, bool mode)
+    * void setWarningStateOutput(int io, bool blink, bool mode)
+    * void setToggleDuration(int duration,bool async)
     * int getInputNumeric
     * bool getNormalState
     * bool getWarningState

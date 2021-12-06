@@ -1,6 +1,6 @@
 #include <hse_relay.h>
 
-class HseController: public HSERelay
+class HseController : public HSERelay
 {
 
 public:
@@ -10,7 +10,7 @@ public:
      * @param io Digital IO Number
      * @param mode Input mod PULL UP/DOWN (defalt PULL_UP)
      */
-    static void setPreAlarmInput(int io, int mode=0x2);
+    static void setPreAlarmInput(int io, int mode = 0x2);
 
     /**
      * @brief Set the Crane Danger Input object
@@ -18,7 +18,7 @@ public:
      * @param io Digital IO Number
      * @param mode Input mod PULL UP/DOWN (defalt PULL_UP)
      */
-    static void setCraneDangerInput(int io, int mode=0x2);
+    static void setCraneDangerInput(int io, int mode = 0x2);
 
     /**
      * @brief Set the Crane Warning Input object
@@ -26,7 +26,7 @@ public:
      * @param io Digital IO Number
      * @param mode Input mod PULL UP/DOWN (defalt PULL_UP)
      */
-    static void setCraneWarningInput(int io, int mode=0x2);
+    static void setCraneWarningInput(int io, int mode = 0x2);
 
     /**
      * @brief Set the Sen Warning Input object
@@ -34,7 +34,7 @@ public:
      * @param io Digital IO Number
      * @param mode Input mod PULL UP/DOWN (defalt PULL_UP)
      */
-    static void setSenWarningInput(int io, int mode=0x2);
+    static void setSenWarningInput(int io, int mode = 0x2);
 
     /**
      * @brief Get the Input Numeric object
@@ -49,9 +49,15 @@ private:
     static int _crane_warning_input_pin;
     static int _sen_warning_input_pin;
     static int _inputs_numeric;
+    static bool _is_pre_alarm_input_pulldown;
+    static bool _is_crane_danger_input_pulldown;
+    static bool _is_crane_warning_input_pulldown;
+    static bool _is_sen_warning_input_pulldown;
+
+    static int _convertToNumeric();
+    static bool _readInput(int pin, bool mode);
 
 protected:
-    
     /**
      * @brief Current Pre Alarm Input Value
      *
@@ -82,8 +88,4 @@ protected:
      * @return int Numeric state
      */
     static int updateInputStates();
-
-
-
-    
 };
