@@ -10,10 +10,10 @@ void setup()
   // Output Configuration
   HSELib::setBuzzerOutput(6);
   HSELib::setDangerStateOutput(7, true);
-  HSELib::setNormalStateOutput(8, true);
-  HSELib::setWarningStateOutput(9, true);
+  HSELib::setNormalStateOutput(8);
+  HSELib::setWarningStateOutput(9);
   // Blink duration
-  HSELib::setToggleDuration(500);
+  HSELib::setToggleDuration(500,true);
 }
 
 void loop()

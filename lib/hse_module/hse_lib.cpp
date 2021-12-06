@@ -20,6 +20,7 @@ void HSELib::update()
 
 void HSELib::_updateOutputs(int numeric)
 {
+   
     normalRelay(_getNormalState(numeric));
     warningRelay(_getWarningState(numeric));
     dangerRelay(_getDangerState(numeric));
