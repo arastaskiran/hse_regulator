@@ -35,10 +35,10 @@ It is not for general use, it was developed to solve a specific problem.
 ## INSTALLATION 
 ---------
 > Download the library by clicking on the link
-https://github.com/arastaskiran/hse_regulator/releases/download/v1.0.0/lib_hse_v1.0.0.zip
+https://github.com/arastaskiran/hse_regulator/releases/download/v1.0.1/lib_hse_v1.0.1.zip
 
 > If you don't know how to import the library, you can get help from the link below.
-https://github.com/arastaskiran/hse_regulator/releases/tag/v1.0.0
+https://github.com/arastaskiran/hse_regulator/releases/tag/v1.0.1
 
 ## USAGE
 ---------
